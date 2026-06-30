@@ -1,9 +1,9 @@
 :root {
     --bg-color: #f9f9fb;
     --card-bg: #ffffff;
-    --primary: #FFB5B5; /* 파스텔 피치 */
-    --secondary: #B5E0FF; /* 파스텔 블루 */
-    --accent: #B5FFD9; /* 파스텔 민트 */
+    --primary: #B39DDB; /* 연보라색 */
+    --secondary: #E6E6FA; /* 아주 연한 보라 */
+    --accent: #B5E0FF; /* 파스텔 블루 */
     --text-main: #333333;
     --text-muted: #888888;
     --border-radius: 20px;
@@ -83,7 +83,7 @@ body {
     padding-top: 16px;
     border-top: 2px dashed #eee;
     font-size: 18px;
-    color: #FF8B8B;
+    color: #9575CD; /* 진한 보라 */
 }
 
 .input-group {
@@ -91,6 +91,12 @@ body {
     flex-direction: column;
     gap: 8px;
     margin-bottom: 16px;
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
 .input-group label {
@@ -108,12 +114,57 @@ body {
     font-weight: 600;
     outline: none;
     transition: all 0.2s;
+    width: 100%;
 }
 
 .input-group input:focus {
     border-color: var(--primary);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(255, 181, 181, 0.2);
+    box-shadow: 0 0 0 3px rgba(179, 157, 219, 0.2);
+}
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.expense-item input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    font-size: 14px;
+    outline: none;
+}
+.expense-item input.name-input {
+    flex: 1;
+}
+.expense-item input.amount-input {
+    flex: 1.5;
+    text-align: right;
+}
+.delete-btn {
+    background: #ffebee;
+    color: #f44336;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+.add-btn {
+    background: var(--secondary);
+    color: #7E57C2;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 8px;
 }
 
 /* Bottom Navigation */
@@ -155,11 +206,16 @@ body {
     font-size: 26px;
 }
 
-.chart-container {
+.chart-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.chart-container-large {
     position: relative;
     height: 250px;
-    width: 100%;
-    margin-top: 20px;
+    min-width: 600px;
+    margin-top: 10px;
 }
 
 .section-label {
@@ -168,12 +224,15 @@ body {
     color: var(--primary);
     margin-bottom: 12px;
     margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .section-label:first-child {
     margin-top: 0;
 }
 
-button {
+button.primary-btn {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -186,6 +245,6 @@ button {
     transition: background-color 0.2s;
     margin-top: 10px;
 }
-button:active {
-    background-color: #ff9999;
+button.primary-btn:active {
+    background-color: #9575CD;
 }
